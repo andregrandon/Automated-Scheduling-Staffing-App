@@ -27,7 +27,7 @@ TEMP_DIR=(BASE_DIR/'templates')
 import os
 SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool( os.environ.get('DEBUG', False) )
+DEBUG = bool( os.environ.get('DEBUG', True) )
 
 ALLOWED_HOSTS = ["*"]
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'app',
 ]
 
 MIDDLEWARE = [

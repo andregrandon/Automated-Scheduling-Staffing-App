@@ -21,30 +21,60 @@
     </div>
   </div>
   <nav class="navbar navbar-dark bg-dark">
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
+      <span>SAIN</span>
+
     </button>
   </nav>
+
 </div>
 
 
 <!--title-->
-<h1 class="title">SAIN</h1>
+
 
 
 <!--center jumbotron-->
 <div class="container h-100 d-flex">
-  <div class="jumbotron text-center">
+  <div class="jumbotron text-center ">
 <h1 class="display-4">Please Enter the Following information</h1>
 <hr class="my-4">
-<h1>Name: </h1>
-<h1>Shift: </h1>
-<h1>ID: </h1>
-<h1>Access Code: </h1>
-<p>Please make sure information is correct.</p>
-<p class="lead">
-  <a class="btn btn-primary btn-lg" href="#" role="button">Confirm</a>
-</p>
+<div class=" h-100 ">
+  <form class=" form-control-lg " action="" method="post">
+    {%csrf_token%}
+    <div class="form-group">
+      <label for="">   First Name: </label>
+      {{form.employee_first}}
+    </div>
+    <div class="form-group">
+      <label for="">Last Name: </label>
+      {{form.employee_last}}
+    </div>
+    <div class="form-group">
+      <label for="">Shift:    </label>
+      {{form.employee_shift}}
+    </div>
+    <div class="form-group">
+      <label for="">ID: </label>
+      {{form.employee_id}}
+    </div>
+    <div class="form-group">
+      <label for="">Email: </label>
+      {{form.email}}
+    </div>
+    <div class="form-group">
+      <label for="">Phone: </label>
+      {{form.phone}}
+    </div>
+
+    <input class="btn btn-primary btn-lg" role="button" type="submit" name="" value="Confirm">
+
+  </form>
+
+</div>
+
 </div>
 
 
@@ -53,6 +83,8 @@
   </body>
   <style media="screen">
   .title{text-align: center;
+    position: relative;
+    /* z-index: 3; */
   color: white;
   font-stretch: expanded;
   font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
@@ -65,16 +97,24 @@
   font-size: 8em;
   font-weight:bold;
   font-style: italic;
-  text-shadow: 6px 4px 10px #FF0000;
+  text-shadow: 8px 10px 10px black;
   }
 
   .jumbotron {
   position: absolute;
-  top: 55%;
+  top: 52%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
   height: 80%;
+}
+
+]
+label {
+  font-family: 'Roboto Medium', sans-serif;
+      font-size: 20px;
+            color: #000;
+
 }
 
   </style>
