@@ -29,10 +29,11 @@ def index(request):
             First_name=First.capitalize()
             for object in Employee.objects.all():
                 if object.employee_id == employee_id and object.employee_first== First_name:
-                    messages.success(request,'ID is in database!')
+                    messages.success(request,'ID and name is in database!')
+                    return render(request,'calender.html',{'form':form})
+
                 else:
                     messages.error(request,"not in database")
-                    # return redirect(error_redirect)
 
     context= {'form':form}
     return render(request, 'index.html',context)
@@ -51,6 +52,4 @@ def index(request):
 #     else:
 #         form = CheckoutForm()
 #         return render(request, 'checkout/checkout.html', {'form': form})
-#
-# def error_redirect():
 #

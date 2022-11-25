@@ -2,7 +2,11 @@ from django.db import models
 from django.contrib import admin
 # Create your models here.
 
-
+class Shift(models.Model):
+    # Day of week
+    day = models.CharField(max_length=200)
+    # Morning, afternoon, evening
+    time = models.CharField(max_length=200)
 
 class Employee(models.Model):
     employee_id = models.CharField(max_length=100)
@@ -13,6 +17,7 @@ class Employee(models.Model):
     phone=models.CharField(max_length=100,null=True, blank=True)
     senority=models.IntegerField(null=True,blank=True)
     status=models.CharField(max_length=100,null=True, blank=True)
+    availability = models.ManyToManyField(Shift)
 
 
     def __str__(self):
