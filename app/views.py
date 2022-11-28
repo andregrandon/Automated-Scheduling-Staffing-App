@@ -31,6 +31,7 @@ def index(request):
                 if object.employee_id == employee_id and object.employee_first== First_name:
                     messages.success(request,'ID and name is in database!')
                     return render(request,'calender.html',{'form':form})
+                    print('hello')
 
                 else:
                     messages.error(request,"not in database")

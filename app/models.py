@@ -1,12 +1,18 @@
 from django.db import models
 from django.contrib import admin
-# Create your models here.
+from django.contrib.postgres.fields import ArrayField
 
-class Shift(models.Model):
-    # Day of week
-    day = models.CharField(max_length=200)
-    # Morning, afternoon, evening
-    time = models.CharField(max_length=200)
+
+
+class Event(models.Model):
+    day = models.DateField(u'Day of the event', help_text=u'Day of the event')
+    start_time = models.TimeField(u'Starting time', help_text=u'Starting time')
+    end_time = models.TimeField(u'Final time', help_text=u'Final time')
+    notes = models.TextField(u'Textual Notes', help_text=u'Textual Notes', blank=True, null=True)
+
+    class Meta:
+        verbose_name = u'Scheduling'
+        verbose_name_plural = u'Scheduling'
 
 class Employee(models.Model):
     employee_id = models.CharField(max_length=100)
@@ -17,7 +23,7 @@ class Employee(models.Model):
     phone=models.CharField(max_length=100,null=True, blank=True)
     senority=models.IntegerField(null=True,blank=True)
     status=models.CharField(max_length=100,null=True, blank=True)
-    availability = models.ManyToManyField(Shift)
+
 
 
     def __str__(self):
